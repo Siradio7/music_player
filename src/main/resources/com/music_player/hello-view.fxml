@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="334.0" style="-fx-background-color: #37474F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.music_player.HelloController">
+   <AnchorPane layoutX="86.0" layoutY="48.0" opacity="0.64" prefHeight="170.0" prefWidth="167.0" style="-fx-background-radius: 200; -fx-background-color: #607D8B;" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="48.0">
+      <ImageView fx:id="image_view_song" fitHeight="114.0" fitWidth="124.0" layoutX="23.0" layoutY="28.0" onMouseClicked="#pause_music" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="28.0">
+         <Image url="@java.png" />
+      </ImageView>
+      <effect>
+         <DropShadow height="73.76" radius="35.6475" width="70.83" />
+      </effect>
+   </AnchorPane>
+   <Label fx:id="label_music_title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="248.0" prefHeight="38.0" prefWidth="288.0" text="Ninho VVS" textFill="#00bfff" wrapText="true" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="21.0">
+      <font>
+         <Font name="High Tower Text" size="16.0" />
+      </font>
+   </Label>
+   <HBox alignment="CENTER" layoutX="23.0" layoutY="328.0" prefHeight="38.0" prefWidth="288.0" spacing="20.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
+      <Button fx:id="button_back" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#previous_music" opacity="0.7" prefHeight="34.0" prefWidth="60.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="&lt;">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="button_pause" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#pause_music" prefHeight="34.0" prefWidth="60.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #258fa4;" text="| |">
+         <effect>
+            <DropShadow height="15.14" radius="7.07" width="15.14" />
+         </effect>
+      </Button>
+      <Button fx:id="button_next" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#next_music" opacity="0.69" prefHeight="34.0" prefWidth="60.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="&gt;">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+   </HBox>
+   <ProgressBar fx:id="music_progress" layoutX="23.0" layoutY="301.0" opacity="0.8" prefHeight="10.0" prefWidth="288.0" progress="0.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" />
+   <Slider fx:id="volume_slider" blockIncrement="1.0" layoutX="297.0" layoutY="72.0" orientation="VERTICAL" prefHeight="131.0" prefWidth="23.0" showTickLabels="true" value="10.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="72.0" />
+   <Label fx:id="volume" alignment="CENTER" layoutX="284.0" layoutY="48.0" onMouseEntered="#volume_mouse_clicked" prefHeight="21.0" prefWidth="38.0" style="-fx-background-color: #258fa4; -fx-background-radius: 5;" text="vol" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="48.0">
+      <font>
+         <Font name="Malgun Gothic" size="13.0" />
+      </font>
+   </Label>
+   <Label fx:id="current_time" layoutX="23.0" layoutY="318.0" prefHeight="19.0" prefWidth="38.0" text="00:00" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="23.0">
+      <font>
+         <Font name="Kristen ITC" size="12.0" />
+      </font>
+   </Label>
+   <Label fx:id="end_time" layoutX="283.0" layoutY="318.0" text="03:45" AnchorPane.bottomAnchor="76.0" AnchorPane.rightAnchor="22.0">
+      <font>
+         <Font name="Kristen ITC" size="12.0" />
+      </font>
+   </Label>
+</AnchorPane>
