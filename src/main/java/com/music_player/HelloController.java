@@ -40,7 +40,6 @@ public class HelloController implements Initializable {
             return;
 
         songs.addAll(Arrays.asList(files));
-
         media = new Media(songs.get(songNumber).toURI().toString());
         mediaPlayer = create_media_player(media);
         mediaPlayer.setAutoPlay(true);

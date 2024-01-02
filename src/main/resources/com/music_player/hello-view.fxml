@@ -37,7 +37,7 @@
    </HBox>
    <ProgressBar fx:id="music_progress" layoutX="23.0" layoutY="301.0" opacity="0.8" prefHeight="10.0" prefWidth="288.0" progress="0.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" />
    <Slider fx:id="volume_slider" blockIncrement="1.0" layoutX="297.0" layoutY="72.0" orientation="VERTICAL" prefHeight="131.0" prefWidth="23.0" showTickLabels="true" value="10.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="72.0" />
-   <Label fx:id="volume" alignment="CENTER" layoutX="284.0" layoutY="48.0" onMouseEntered="#volume_mouse_clicked" prefHeight="21.0" prefWidth="38.0" style="-fx-background-color: #258fa4; -fx-background-radius: 5;" text="vol" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="48.0">
+   <Label alignment="CENTER" layoutX="284.0" layoutY="48.0" onMouseEntered="#volume_mouse_clicked" prefHeight="21.0" prefWidth="38.0" style="-fx-background-color: #258fa4; -fx-background-radius: 5;" text="vol" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="48.0">
       <font>
          <Font name="Malgun Gothic" size="13.0" />
       </font>
