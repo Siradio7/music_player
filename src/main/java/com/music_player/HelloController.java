@@ -30,6 +30,8 @@ public class HelloController implements Initializable {
     private Media media;
     private MediaPlayer mediaPlayer;
     private ArrayList<File> songs;
+    File directory;
+    File[] files;
     private int songNumber = (int) (Math.random() * 10);
     private boolean paused;
     RotateTransition rotateTransition;
@@ -38,28 +40,31 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Chargement des icônes
         init_icon();
+
+        // Chargement des musiques
+        load_songs_files();
+
+        // Chargement des musiques sur la liste view
+        playlist.getItems().addAll(Arrays.asList(files));
+
+        // Initialisation des écouteurs d'événements
+        init_listener();
+
+        // Initialisation aléatoire d'une musique au lancement
+        start_music(songNumber);
+    }
+
+    private void load_songs_files() {
         songs = new ArrayList<>();
-        File directory = new File("music");
-        File[] files = directory.listFiles();
+        directory = new File("music");
+        files = directory.listFiles();
 
         if (files == null)
             return;
 
         songs.addAll(Arrays.asList(files));
-        playlist.getItems().addAll(Arrays.asList(files));
-        playlist.getSelectionModel().selectedIndexProperty().addListener(((observableValue, number, t1) -> {
-            songNumber = playlist.getSelectionModel().getSelectedIndex();
-            next_music(songNumber);
-        }));
-
-        media = new Media(songs.get(songNumber).toURI().toString());
-        mediaPlayer = create_media_player(media);
-        mediaPlayer.setAutoPlay(true);
-        begin_timer();
-
-        // Ecouteur d'évènement pour la modification du volume
-        volume_slider.valueProperty().addListener((observableValue, number, t1) -> mediaPlayer.setVolume(volume_slider.getValue() * 0.01));
     }
 
     private void init_icon() {
@@ -83,6 +88,20 @@ public class HelloController implements Initializable {
         button_playlist.setGraphic(icon_playlist);
         button_volume.setGraphic(icon_volume);
         button_fermer_playlist.setGraphic(icon_fermer_playlist);
+    }
+
+    private void init_listener() {
+        // Écouteur pour faire disparaitre le volume slider une fois que la souris n'est plus sur le composant
+        volume_slider.setOnMouseExited(mouseEvent -> volume_slider.setVisible(false));
+
+        // Écouteur pour que chaque musique de la liste view sélectionné se lance automatiquement
+        playlist.getSelectionModel().selectedIndexProperty().addListener(((observableValue, number, t1) -> {
+            songNumber = playlist.getSelectionModel().getSelectedIndex();
+            next_music(songNumber);
+        }));
+
+        // Écouteur d'évènement pour la modification du volume
+        volume_slider.valueProperty().addListener((observableValue, number, t1) -> mediaPlayer.setVolume(volume_slider.getValue() * 0.01));
     }
 
     private MediaPlayer create_media_player(Media media) {
@@ -123,14 +142,15 @@ public class HelloController implements Initializable {
     public void next_music() {
         mediaPlayer.stop();
         songNumber = songNumber < songs.size()-1 ? songNumber+1 : 0;
-        media = new Media(songs.get(songNumber).toURI().toString());
-        mediaPlayer = create_media_player(media);
-        mediaPlayer.setAutoPlay(true);
-        begin_timer();
+        start_music(songNumber);
     }
 
     public void next_music(int songNumber) {
         mediaPlayer.stop();
+        start_music(songNumber);
+    }
+
+    public void start_music(int songNumber) {
         media = new Media(songs.get(songNumber).toURI().toString());
         mediaPlayer = create_media_player(media);
         mediaPlayer.setAutoPlay(true);
@@ -166,7 +186,6 @@ public class HelloController implements Initializable {
 
     public void volume_mouse_clicked() {
         volume_slider.setVisible(true);
-        volume_slider.setOnMouseExited(mouseEvent -> volume_slider.setVisible(false));
     }
 
     public void show_playlist() {
