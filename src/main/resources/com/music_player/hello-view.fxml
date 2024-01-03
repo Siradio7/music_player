@@ -7,49 +7,55 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="334.0" style="-fx-background-color: #37474F;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.music_player.HelloController">
-   <AnchorPane layoutX="86.0" layoutY="48.0" opacity="0.64" prefHeight="170.0" prefWidth="167.0" style="-fx-background-radius: 200; -fx-background-color: #607D8B;" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="48.0">
+   <Button fx:id="button_volume" contentDisplay="GRAPHIC_ONLY" layoutX="279.0" layoutY="42.0" mnemonicParsing="false" onMouseEntered="#volume_mouse_clicked" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-background-color: #258fa4;" textAlignment="CENTER" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="42.0" />
+   <AnchorPane layoutX="84.0" layoutY="37.0" opacity="0.64" prefHeight="170.0" prefWidth="167.0" style="-fx-background-radius: 200; -fx-background-color: #607D8B;" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="37.0">
       <ImageView fx:id="image_view_song" fitHeight="114.0" fitWidth="124.0" layoutX="23.0" layoutY="28.0" onMouseClicked="#pause_music" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="28.0">
-         <Image url="@java.png" />
+         <Image url="@la-musique.png" />
       </ImageView>
       <effect>
-         <DropShadow height="73.76" radius="35.6475" width="70.83" />
+         <DropShadow height="28.33" radius="14.032499999999999" width="29.8" />
       </effect>
    </AnchorPane>
-   <Label fx:id="label_music_title" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="248.0" prefHeight="38.0" prefWidth="288.0" text="Ninho VVS" textFill="#00bfff" wrapText="true" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="21.0">
+   <Label fx:id="label_music_title" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="230.0" prefHeight="38.0" prefWidth="288.0" text="Ninho VVS" textFill="#00bfff" wrapText="true" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="22.0">
       <font>
          <Font name="High Tower Text" size="16.0" />
       </font>
    </Label>
-   <HBox alignment="CENTER" layoutX="23.0" layoutY="328.0" prefHeight="38.0" prefWidth="288.0" spacing="20.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
-      <Button fx:id="button_back" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#previous_music" opacity="0.7" prefHeight="34.0" prefWidth="60.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="&lt;">
+   <HBox alignment="CENTER" layoutX="24.0" layoutY="337.0" prefHeight="38.0" prefWidth="288.0" spacing="20.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="22.0">
+      <Button fx:id="button_back" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" mnemonicParsing="false" onAction="#previous_music" opacity="0.7" prefHeight="34.0" prefWidth="45.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="button_pause" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#pause_music" prefHeight="34.0" prefWidth="60.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #258fa4;" text="| |">
+      <Button fx:id="button_pause" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#pause_music" prefHeight="34.0" prefWidth="50.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #258fa4;">
          <effect>
             <DropShadow height="15.14" radius="7.07" width="15.14" />
          </effect>
       </Button>
-      <Button fx:id="button_next" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#next_music" opacity="0.69" prefHeight="34.0" prefWidth="60.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" text="&gt;">
+      <Button fx:id="button_next" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" mnemonicParsing="false" onAction="#next_music" opacity="0.69" prefHeight="34.0" prefWidth="45.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
          <font>
             <Font size="14.0" />
          </font></Button>
    </HBox>
-   <ProgressBar fx:id="music_progress" layoutX="23.0" layoutY="301.0" opacity="0.8" prefHeight="10.0" prefWidth="288.0" progress="0.0" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" />
-   <Slider fx:id="volume_slider" blockIncrement="1.0" layoutX="297.0" layoutY="72.0" orientation="VERTICAL" prefHeight="131.0" prefWidth="23.0" showTickLabels="true" value="10.0" visible="false" AnchorPane.bottomAnchor="210.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="72.0" />
-   <Label alignment="CENTER" layoutX="284.0" layoutY="48.0" onMouseEntered="#volume_mouse_clicked" prefHeight="21.0" prefWidth="38.0" style="-fx-background-color: #258fa4; -fx-background-radius: 5;" text="vol" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="48.0">
-      <font>
-         <Font name="Malgun Gothic" size="13.0" />
-      </font>
-   </Label>
-   <Label fx:id="current_time" layoutX="23.0" layoutY="318.0" prefHeight="19.0" prefWidth="38.0" text="00:00" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="23.0">
+   <ProgressBar fx:id="music_progress" layoutX="23.0" layoutY="279.0" opacity="0.8" prefHeight="10.0" prefWidth="288.0" progress="0.0" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" />
+   <Slider fx:id="volume_slider" blockIncrement="1.0" layoutX="297.0" layoutY="76.0" orientation="VERTICAL" prefHeight="138.0" prefWidth="38.0" showTickLabels="true" value="5.0" visible="false" AnchorPane.bottomAnchor="199.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="76.0" />
+   <Label fx:id="current_time" layoutX="23.0" layoutY="299.0" prefHeight="19.0" prefWidth="38.0" text="00:00" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="23.0">
       <font>
          <Font name="Kristen ITC" size="12.0" />
       </font>
    </Label>
-   <Label fx:id="end_time" layoutX="283.0" layoutY="318.0" text="03:45" AnchorPane.bottomAnchor="76.0" AnchorPane.rightAnchor="22.0">
+   <Label fx:id="end_time" layoutX="284.0" layoutY="299.0" text="03:45" AnchorPane.bottomAnchor="95.0" AnchorPane.rightAnchor="21.0">
       <font>
          <Font name="Kristen ITC" size="12.0" />
       </font>
    </Label>
+   <Button fx:id="button_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="42.0" mnemonicParsing="false" onAction="#show_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-background-color: #258fa4;" textAlignment="CENTER" />
+   <AnchorPane fx:id="anchor_pane_playlist" prefHeight="413.0" prefWidth="334.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ListView fx:id="playlist" layoutY="53.0" prefHeight="360.0" prefWidth="334.0" style="-fx-background-color: #607D8B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0" />
+      <Label alignment="CENTER" prefHeight="53.0" prefWidth="334.0" style="-fx-background-color: #90A4AE;" text="Playlist" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Franklin Gothic Book" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_fermer_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#hide_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-background-color: transparent; -fx-border-color: #607D8B; -fx-border-radius: 5;" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="10.0" />
+   </AnchorPane>
 </AnchorPane>
