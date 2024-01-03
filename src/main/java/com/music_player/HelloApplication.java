@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        Image icon = new Image(String.valueOf(HelloApplication.class.getResource("github.png")));
+        Image icon = new Image(String.valueOf(HelloApplication.class.getResource("la-musique.png")));
         stage.getIcons().add(icon);
         stage.setTitle("Music player");
         stage.setResizable(false);
