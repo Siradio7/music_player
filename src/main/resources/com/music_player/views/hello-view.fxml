@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="334.0" style="-fx-background-color: CFD8DC;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.music_player.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="334.0" style="-fx-background-color: CFD8DC;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.music_player.HelloController">
    <AnchorPane layoutX="84.0" layoutY="37.0" opacity="0.64" prefHeight="170.0" prefWidth="167.0" style="-fx-background-radius: 200; -fx-background-color: #607D8B;" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="37.0">
       <ImageView fx:id="image_view_song" fitHeight="114.0" fitWidth="124.0" layoutX="23.0" layoutY="28.0" onMouseClicked="#pause_music" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="28.0">
-         <Image url="@la-musique.png" />
+         <Image url="@../icons/la-musique.png" />
       </ImageView>
       <effect>
          <DropShadow height="28.33" radius="14.032499999999999" width="29.8" />
@@ -47,7 +47,7 @@
       </font>
    </Label>
    <Button fx:id="button_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="42.0" mnemonicParsing="false" onAction="#show_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="button_playlist" textAlignment="CENTER" />
-   <AnchorPane fx:id="anchor_pane_playlist" prefHeight="413.0" prefWidth="334.0" stylesheets="@../../css/style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <AnchorPane fx:id="anchor_pane_playlist" prefHeight="413.0" prefWidth="334.0" stylesheets="@../css/style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <ListView fx:id="playlist" layoutY="53.0" prefHeight="360.0" prefWidth="334.0" style="-fx-background-color: #607D8B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0" />
       <Label alignment="CENTER" prefHeight="53.0" prefWidth="334.0" style="-fx-background-color: CFD8DC;" text="Playlist" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>

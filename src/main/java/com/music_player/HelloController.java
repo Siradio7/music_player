@@ -68,13 +68,13 @@ public class HelloController implements Initializable {
     }
 
     private void init_icon() {
-        Image icon_image_next = new Image(String.valueOf(HelloController.class.getResource("prochain.png")));
-        Image icon_image_back = new Image(String.valueOf(HelloController.class.getResource("rewind.png")));
-        Image icon_image_pause = new Image(String.valueOf(HelloController.class.getResource("pause.png")));
-        Image icon_image_play = new Image(String.valueOf(HelloController.class.getResource("jouer.png")));
-        Image icon_image_playlist = new Image(String.valueOf(HelloController.class.getResource("playlist.png")));
-        Image icon_image_volume = new Image(String.valueOf(HelloController.class.getResource("volume.png")));
-        Image icon_image_fermer_playlist = new Image(String.valueOf(HelloController.class.getResource("bouton-retour.png")));
+        Image icon_image_next = new Image(String.valueOf(HelloController.class.getResource("icons/prochain.png")));
+        Image icon_image_back = new Image(String.valueOf(HelloController.class.getResource("icons/rewind.png")));
+        Image icon_image_pause = new Image(String.valueOf(HelloController.class.getResource("icons/pause.png")));
+        Image icon_image_play = new Image(String.valueOf(HelloController.class.getResource("icons/jouer.png")));
+        Image icon_image_playlist = new Image(String.valueOf(HelloController.class.getResource("icons/playlist.png")));
+        Image icon_image_volume = new Image(String.valueOf(HelloController.class.getResource("icons/volume.png")));
+        Image icon_image_fermer_playlist = new Image(String.valueOf(HelloController.class.getResource("icons/bouton-retour.png")));
         ImageView icon_next = new ImageView(icon_image_next);
         ImageView icon_back = new ImageView(icon_image_back);
         icon_pause = new ImageView(icon_image_pause);
