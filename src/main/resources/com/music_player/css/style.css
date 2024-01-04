@@ -3,6 +3,10 @@
 }
 
 .button_pause {
+    -fx-background-color: #258fbb;
+}
+
+.button_pause:hover {
     -fx-background-color: #258fa4;
 }
 

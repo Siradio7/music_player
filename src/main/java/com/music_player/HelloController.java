@@ -13,6 +13,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.net.URL;
@@ -42,6 +43,9 @@ public class HelloController implements Initializable {
         // Chargement des icônes
         init_icon();
 
+        // Ajout des tooltips sur les boutons
+        init_button_tooltip();
+
         // Chargement des musiques
         load_songs_files();
 
@@ -53,6 +57,15 @@ public class HelloController implements Initializable {
 
         // Initialisation aléatoire d'une musique au lancement
         start_music(songNumber);
+    }
+
+    private void init_button_tooltip() {
+        button_playlist.setTooltip(this.get_tooltip("Playlist"));
+        button_pause.setTooltip(this.get_tooltip("Pause"));
+        button_fermer_playlist.setTooltip(this.get_tooltip("Fermer"));
+        button_next.setTooltip(this.get_tooltip("Suivant"));
+        button_back.setTooltip(this.get_tooltip("Avant"));
+        button_volume.setTooltip(this.get_tooltip("Volume"));
     }
 
     private void load_songs_files() {
@@ -118,7 +131,7 @@ public class HelloController implements Initializable {
         });
     }
 
-    private MediaPlayer create_media_player(Media media) {
+    private @NotNull MediaPlayer create_media_player(Media media) {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         mediaPlayer.setVolume(volume_slider.getValue() * 0.001);
@@ -215,8 +228,8 @@ public class HelloController implements Initializable {
         anchor_pane_playlist.setVisible(true);
         translateTransition = new TranslateTransition();
         translateTransition.setNode(anchor_pane_playlist);
-        translateTransition.setByX(250);
-        translateTransition.setFromX(-250);
+        translateTransition.setByY(-350);
+        translateTransition.setFromY(350);
         translateTransition.setDuration(Duration.millis(200));
         translateTransition.play();
     }
@@ -224,10 +237,19 @@ public class HelloController implements Initializable {
     public void hide_playlist() {
         translateTransition = new TranslateTransition();
         translateTransition.setNode(anchor_pane_playlist);
-        translateTransition.setByX(250);
-        translateTransition.setToX(-250);
+        translateTransition.setByY(350);
+        translateTransition.setToY(350);
         translateTransition.setDuration(Duration.millis(200));
         translateTransition.play();
         translateTransition.setOnFinished(actionEvent -> anchor_pane_playlist.setVisible(false));
+    }
+
+    private @NotNull Tooltip get_tooltip(String tooltip_text) {
+        Tooltip tooltip = new Tooltip();
+
+        tooltip.setText(tooltip_text);
+        tooltip.setShowDelay(Duration.millis(500));
+
+        return tooltip;
     }
 }
