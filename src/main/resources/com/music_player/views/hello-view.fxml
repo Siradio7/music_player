@@ -7,6 +7,10 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="334.0" style="-fx-background-color: CFD8DC;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.music_player.HelloController">
+   <VBox fx:id="vbox_volume" alignment="TOP_CENTER" layoutX="273.0" layoutY="42.0" prefHeight="151.0" prefWidth="38.0" spacing="7.0" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="273.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="42.0">
+      <Button fx:id="button_volume" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseEntered="#volume_mouse_clicked" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="button_volume" textAlignment="CENTER" />
+      <Slider fx:id="volume_slider" blockIncrement="1.0" majorTickUnit="50.0" orientation="VERTICAL" prefHeight="110.0" prefWidth="38.0" showTickLabels="true" value="50.0" visible="false" />
+   </VBox>
    <AnchorPane layoutX="84.0" layoutY="37.0" opacity="0.64" prefHeight="170.0" prefWidth="167.0" style="-fx-background-radius: 200; -fx-background-color: #607D8B;" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="83.0" AnchorPane.topAnchor="37.0">
       <ImageView fx:id="image_view_song" fitHeight="114.0" fitWidth="124.0" layoutX="23.0" layoutY="28.0" onMouseClicked="#pause_music" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="28.0">
          <Image url="@../icons/la-musique.png" />
@@ -46,7 +50,7 @@
          <Font name="Kristen ITC" size="12.0" />
       </font>
    </Label>
-   <Button fx:id="button_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="42.0" mnemonicParsing="false" onAction="#show_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="button_playlist" textAlignment="CENTER" />
+   <Button fx:id="button_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="42.0" mnemonicParsing="false" onAction="#show_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="button_playlist" textAlignment="CENTER" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="42.0" />
    <AnchorPane fx:id="anchor_pane_playlist" prefHeight="413.0" prefWidth="334.0" stylesheets="@../css/style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <ListView fx:id="playlist" layoutY="53.0" prefHeight="360.0" prefWidth="334.0" style="-fx-background-color: #607D8B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0" />
       <Label alignment="CENTER" prefHeight="53.0" prefWidth="334.0" style="-fx-background-color: CFD8DC;" text="Playlist" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -56,8 +60,4 @@
       </Label>
       <Button fx:id="button_fermer_playlist" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#hide_playlist" prefHeight="34.0" prefWidth="38.0" style="-fx-border-radius: 5; -fx-background-radius: 5;" styleClass="button_playlist" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="10.0" />
    </AnchorPane>
-   <VBox fx:id="vbox_volume" layoutX="273.0" layoutY="42.0" prefHeight="170.0" prefWidth="38.0" AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="273.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="42.0">
-      <Button fx:id="button_volume" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseEntered="#volume_mouse_clicked" prefHeight="34.0" prefWidth="38.0" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="button_volume" textAlignment="CENTER" />
-      <Slider fx:id="volume_slider" blockIncrement="1.0" orientation="VERTICAL" prefHeight="138.0" prefWidth="38.0" showTickLabels="true" value="5.0" visible="false" />
-   </VBox>
 </AnchorPane>

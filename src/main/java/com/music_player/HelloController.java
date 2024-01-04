@@ -112,13 +112,16 @@ public class HelloController implements Initializable {
         }));
 
         // Écouteur d'évènement pour la modification du volume
-        volume_slider.valueProperty().addListener((observableValue, number, t1) -> mediaPlayer.setVolume(volume_slider.getValue() * 0.001));
+        volume_slider.valueProperty().addListener((observableValue, number, t1) -> {
+            if (volume_slider.isVisible())
+                mediaPlayer.setVolume(volume_slider.getValue() * 0.001);
+        });
     }
 
     private MediaPlayer create_media_player(Media media) {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
 
-        mediaPlayer.setVolume(volume_slider.getValue() * 0.01);
+        mediaPlayer.setVolume(volume_slider.getValue() * 0.001);
         label_music_title.setText(songs.get(songNumber).getName());
 
         // Pour exécuter automatiquement le prochain fichier à la fin de la lecture
