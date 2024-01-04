@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.transform.Rotate;
@@ -25,6 +26,7 @@ public class HelloController implements Initializable {
     public Slider volume_slider;
     public ListView<File> playlist;
     public AnchorPane anchor_pane_playlist;
+    public VBox vbox_volume;
     private Media media;
     private MediaPlayer mediaPlayer;
     private ArrayList<File> songs;
@@ -90,14 +92,17 @@ public class HelloController implements Initializable {
 
     private void init_listener() {
         // Écouteur pour faire disparaitre le volume slider une fois que la souris n'est plus sur le composant
-        volume_slider.setOnMouseExited(mouseEvent -> {
-            translateTransition.setNode(volume_slider);
-            translateTransition.setByX(40);
-            translateTransition.setToX(40);
-            translateTransition.setFromX(0);
-            translateTransition.setDuration(Duration.millis(300));
-            translateTransition.play();
-            translateTransition.setOnFinished(actionEvent -> volume_slider.setVisible(false));
+        vbox_volume.setOnMouseExited(mouseEvent -> {
+            if (volume_slider.isVisible()) {
+                translateTransition.setNode(volume_slider);
+                translateTransition.setByX(50);
+                translateTransition.setToX(50);
+                translateTransition.setFromX(0);
+                translateTransition.setDuration(Duration.millis(300));
+                translateTransition.setInterpolator(Interpolator.EASE_IN);
+                translateTransition.play();
+                translateTransition.setOnFinished(actionEvent -> volume_slider.setVisible(false));
+            }
         });
 
         // Écouteur pour que chaque musique de la liste view sélectionné se lance automatiquement
@@ -107,7 +112,7 @@ public class HelloController implements Initializable {
         }));
 
         // Écouteur d'évènement pour la modification du volume
-        volume_slider.valueProperty().addListener((observableValue, number, t1) -> mediaPlayer.setVolume(volume_slider.getValue() * 0.01));
+        volume_slider.valueProperty().addListener((observableValue, number, t1) -> mediaPlayer.setVolume(volume_slider.getValue() * 0.001));
     }
 
     private MediaPlayer create_media_player(Media media) {
@@ -191,13 +196,16 @@ public class HelloController implements Initializable {
     }
 
     public void volume_mouse_clicked() {
-        volume_slider.setVisible(true);
-        translateTransition = new TranslateTransition();
-        translateTransition.setNode(volume_slider);
-        translateTransition.setByX(-40);
-        translateTransition.setFromX(40);
-        translateTransition.setDuration(Duration.millis(300));
-        translateTransition.play();
+        if (!volume_slider.isVisible()) {
+            volume_slider.setVisible(true);
+            translateTransition = new TranslateTransition();
+            translateTransition.setNode(volume_slider);
+            translateTransition.setByX(-50);
+            translateTransition.setFromX(50);
+            translateTransition.setDuration(Duration.millis(300));
+            translateTransition.setInterpolator(Interpolator.EASE_OUT);
+            translateTransition.play();
+        }
     }
 
     public void show_playlist() {
