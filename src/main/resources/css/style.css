@@ -1,0 +1,16 @@
+.music_progress {
+    -fx-accent: #258fa4;
+}
+
+.button_pause {
+    -fx-background-color: #258fa4;
+}
+
+.button_previous, .button_next, .button_volume, .button_playlist {
+    -fx-background-color:  transparent;
+    -fx-border-color: #258fa4;
+}
+
+.button_previous:hover, .button_next:hover, .button_volume:hover, .button_playlist:hover {
+    -fx-background-color: #258fa4;
+}

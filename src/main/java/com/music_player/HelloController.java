@@ -18,25 +18,22 @@ import java.net.URL;
 import java.util.*;
 
 public class HelloController implements Initializable {
-    public Label label_music_title;
+    public Label label_music_title, current_time, end_time;
     public Button button_back, button_pause, button_next, button_playlist, button_volume, button_fermer_playlist;
     public ProgressBar music_progress;
     public ImageView image_view_song;
     public Slider volume_slider;
-    public Label current_time;
-    public Label end_time;
     public ListView<File> playlist;
     public AnchorPane anchor_pane_playlist;
     private Media media;
     private MediaPlayer mediaPlayer;
     private ArrayList<File> songs;
-    File directory;
-    File[] files;
+    private File[] files;
     private int songNumber = (int) (Math.random() * 10);
     private boolean paused;
     RotateTransition rotateTransition;
-    private ImageView icon_pause;
-    private ImageView icon_play;
+    TranslateTransition translateTransition;
+    private ImageView icon_pause, icon_play;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,7 +55,8 @@ public class HelloController implements Initializable {
 
     private void load_songs_files() {
         songs = new ArrayList<>();
-        directory = new File("music");
+
+        File directory = new File("music");
         files = directory.listFiles();
 
         if (files == null)
@@ -92,7 +90,15 @@ public class HelloController implements Initializable {
 
     private void init_listener() {
         // Écouteur pour faire disparaitre le volume slider une fois que la souris n'est plus sur le composant
-        volume_slider.setOnMouseExited(mouseEvent -> volume_slider.setVisible(false));
+        volume_slider.setOnMouseExited(mouseEvent -> {
+            translateTransition.setNode(volume_slider);
+            translateTransition.setByX(40);
+            translateTransition.setToX(40);
+            translateTransition.setFromX(0);
+            translateTransition.setDuration(Duration.millis(300));
+            translateTransition.play();
+            translateTransition.setOnFinished(actionEvent -> volume_slider.setVisible(false));
+        });
 
         // Écouteur pour que chaque musique de la liste view sélectionné se lance automatiquement
         playlist.getSelectionModel().selectedIndexProperty().addListener(((observableValue, number, t1) -> {
@@ -186,13 +192,31 @@ public class HelloController implements Initializable {
 
     public void volume_mouse_clicked() {
         volume_slider.setVisible(true);
+        translateTransition = new TranslateTransition();
+        translateTransition.setNode(volume_slider);
+        translateTransition.setByX(-40);
+        translateTransition.setFromX(40);
+        translateTransition.setDuration(Duration.millis(300));
+        translateTransition.play();
     }
 
     public void show_playlist() {
         anchor_pane_playlist.setVisible(true);
+        translateTransition = new TranslateTransition();
+        translateTransition.setNode(anchor_pane_playlist);
+        translateTransition.setByX(250);
+        translateTransition.setFromX(-250);
+        translateTransition.setDuration(Duration.millis(200));
+        translateTransition.play();
     }
 
     public void hide_playlist() {
-        anchor_pane_playlist.setVisible(false);
+        translateTransition = new TranslateTransition();
+        translateTransition.setNode(anchor_pane_playlist);
+        translateTransition.setByX(250);
+        translateTransition.setToX(-250);
+        translateTransition.setDuration(Duration.millis(200));
+        translateTransition.play();
+        translateTransition.setOnFinished(actionEvent -> anchor_pane_playlist.setVisible(false));
     }
 }
