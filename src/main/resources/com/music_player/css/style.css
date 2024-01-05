@@ -1,5 +1,13 @@
-.music_progress {
-    -fx-accent: #258fa4;
+.progress-bar {
+    -fx-background-color: #e0e0e0;
+}
+
+.progress-bar .track {
+    -fx-background-color: #a0a0a0;
+}
+
+.progress-bar .bar {
+    -fx-background-color: black;
 }
 
 .button_pause {
