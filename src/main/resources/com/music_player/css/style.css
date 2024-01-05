@@ -41,3 +41,23 @@
     -fx-background-color: #37474F;
     -fx-text-fill: white;
 }
+
+.slider {
+    -fx-background-color: #e0e0e0;
+}
+
+.slider .track {
+    -fx-background-color: #a0a0a0;
+}
+
+.slider .track .fill {
+    -fx-background-color: #2e8b57;
+}
+
+.slider .thumb {
+    -fx-background-color: #4682b4;
+}
+
+.slider .thumb .thumb-text {
+    -fx-fill: white;
+}
