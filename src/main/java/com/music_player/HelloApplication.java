@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("views/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Image icon = new Image(String.valueOf(HelloApplication.class.getResource("icons/la-musique.png")));
+        scene.getStylesheets().add(String.valueOf(HelloApplication.class.getResource("css/style.css")));
         stage.getIcons().add(icon);
         stage.setTitle("Music player");
         stage.setResizable(false);

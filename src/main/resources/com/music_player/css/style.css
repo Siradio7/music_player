@@ -18,3 +18,26 @@
 .button_previous:hover, .button_next:hover, .button_volume:hover, .button_playlist:hover {
     -fx-background-color: #258fa4;
 }
+
+// Pour les lignes paires
+.list-cell {
+    -fx-background-color: #B0BEC5;
+    -fx-pref-height: 40;
+    -fx-pref-width: 100;
+    -fx-font-size: 13;
+}
+
+// Pour les lignes impaires
+.list-cell:even {
+    -fx-background-color: #CFD8DC;
+}
+
+.list-cell:selected {
+    -fx-background-color: #263238;
+    -fx-text-fill: white;
+}
+
+.list-cell:hover {
+    -fx-background-color: #37474F;
+    -fx-text-fill: white;
+}

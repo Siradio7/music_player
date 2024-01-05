@@ -196,7 +196,7 @@ public class HelloController implements Initializable {
         rotateTransition.play();
 
         Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
+        @NotNull TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 double current = mediaPlayer.getCurrentTime().toSeconds();
