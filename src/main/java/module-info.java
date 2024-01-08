@@ -5,6 +5,7 @@ module com.music_player {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires org.kordamp.ikonli.javafx;
     requires org.jetbrains.annotations;
 
     opens com.music_player to javafx.fxml;
