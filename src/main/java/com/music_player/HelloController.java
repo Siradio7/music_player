@@ -32,7 +32,7 @@ public class HelloController implements Initializable {
     private MediaPlayer mediaPlayer;
     private ArrayList<File> songs;
     private File[] files;
-    private int songNumber = (int) (Math.random() * 10);
+    private int songNumber = (int) (Math.random() * 3);
     private boolean paused;
     RotateTransition rotateTransition;
     TranslateTransition translateTransition;
